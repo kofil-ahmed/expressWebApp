@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather app</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+    <!-- <link rel="stylesheet" href="public/css/style.css"> -->
+    <link rel="stylesheet" href="css/weather.css">
+    <link rel="stylesheet" href="css/style1.css">
+</head>
+<body>
+     {{>header}}
+    <section>
+    <div class="weather_content">
+
+    <div class="date-time">
+        <input type="text" placeholder="Enter your city name" id="city_name">
+        <input type="submit" value="searce" id="submit_button">
+        <h1 id="data">WED | OCT 23 | 10:49AM</h1>
+    </div>
+
+    <h2 class="error_msg hide">plz enter cty name</h2>
+    
+     <div class="info hide">
+    <div class="icon">
+        <i class="fas fa-street-view"></i>
+    </div>
+        <h2 class="location">ctg,BD</h2>
+        <h1 class="temp">
+            <span class="tempre">25</span><small>0</small>
+            <span>C</span> </h1>
+    </div>
+    </div>
+    </section>
+
+    {{>footer}}
+
+    <script src="js/main.js"></script>
+    <script>
+    const curDate = document.getElementById('data');
+    const weathercon = document.getElementById('weathercon');
+    const tempStatus = 'clouds';
+
+const getCurrentDay = ()=>{
+    let currentDate = new Date();
+    var weekday = new Array(7);
+    weekday[0] = "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";  
+    weekday[6] = "Saturday";
+
+    let day = weekday[currentDate.getDay()];
+
+    return day;
+}
+const getCurrentDate = ()=>{
+    var now = new Date();
+    var months = new Array();
+    months[0] = "Jan";
+    months[1] = "Feb";
+    months[2] = "Mar";
+    months[3] = "Apr";
+    months[4] = "May";
+    months[5] = "Jun";
+    months[6] = "Jul";
+    months[7] = "Aug";
+    months[8] = "Sep";
+    months[9] = "Oct";
+    months[10] = "Nov";
+    months[11] = "Dec";
+    // var n = month[d.getMonth()];
+    var month = months[now.getMonth()];
+    var date = now.getDate();
+    var hours =  now.getHours();
+    var mins = now.getMinutes();
+    // var secs = now.getSeconds();
+    let periods = 'AM'
+    if(hours > 11){
+        periods = 'PM';
+        if(hours > 12) hours -= 12;
+    }
+    if(mins < 10){
+        mins = "0" + mins;
+    }
+    // console.log(secs);
+    curDate.innerHTML = day + " / "  + month + " - " + date + " | "+ hours + ":" + mins + periods;
+}
+setInterval(getCurrentDate,1000)
+
+curDate.innerHTML = getCurrentDay() + " | " + getCurrentDate();
+
+    </script>
+    <script src="js/script.js"></script> -->
+</body>
+</html>
