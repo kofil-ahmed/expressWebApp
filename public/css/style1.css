@@ -235,6 +235,18 @@ header{
         width: 100%;
         float: none;
     }
+    .head_titel i{
+        animation: animt 2s linear infinite;
+        color: white;
+    }
+    @keyframes animt{
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+    }
     .head_link_page{
         position: relative;
         width: 100%;
@@ -298,4 +310,5 @@ header{
         margin-left: 0;
         margin-top: 1rem;
     }
+
 }

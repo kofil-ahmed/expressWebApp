@@ -53,9 +53,9 @@ const getCurrentDay = ()=>{
     weekday[5] = "Friday";  
     weekday[6] = "Saturday";
 
-    let day = weekday[currentDate.getDay()];
+    var day = weekday[currentDate.getDay()];
 
-    return day;
+    curDate.innerHTML = day + " / " + ;
 }
 const getCurrentDate = ()=>{
     var now = new Date();
@@ -87,13 +87,13 @@ const getCurrentDate = ()=>{
         mins = "0" + mins;
     }
     // console.log(secs);
-    curDate.innerHTML = day + " / "  + month + " - " + date + " | "+ hours + ":" + mins + periods;
+    curDate.innerHTML = month + " - " + date + " | "+ hours + ":" + mins + periods;
 }
 setInterval(getCurrentDate,1000)
 
 curDate.innerHTML = getCurrentDay() + " | " + getCurrentDate();
 
     </script>
-    <script src="js/script.js"></script> -->
+    <script src="js/script.js"></script>
 </body>
 </html>
