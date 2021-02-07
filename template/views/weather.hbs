@@ -17,7 +17,7 @@
     <div class="date-time">
         <input type="text" placeholder="Enter your city name" id="city_name">
         <input type="submit" value="searce" id="submit_button">
-        <h1 id="data">WED | OCT 23 | 10:49AM</h1>
+        <h1 id="data">WED | OCT 23 | 1AM</h1>
     </div>
 
     <h2 class="error_msg hide">plz enter cty name</h2>
@@ -42,8 +42,9 @@
     const weathercon = document.getElementById('weathercon');
     const tempStatus = 'clouds';
 
-const getCurrentDay = ()=>{
-    let currentDate = new Date();
+const getCurrentDate = ()=>{
+    var now = new Date();
+    
     var weekday = new Array(7);
     weekday[0] = "Sunday";
     weekday[1] = "Monday";
@@ -52,13 +53,8 @@ const getCurrentDay = ()=>{
     weekday[4] = "Thursday";
     weekday[5] = "Friday";  
     weekday[6] = "Saturday";
+    var day = weekday[now.getDay()];
 
-    var day = weekday[currentDate.getDay()];
-
-    curDate.innerHTML = day + " / " + ;
-}
-const getCurrentDate = ()=>{
-    var now = new Date();
     var months = new Array();
     months[0] = "Jan";
     months[1] = "Feb";
@@ -87,11 +83,11 @@ const getCurrentDate = ()=>{
         mins = "0" + mins;
     }
     // console.log(secs);
-    curDate.innerHTML = month + " - " + date + " | "+ hours + ":" + mins + periods;
+    curDate.innerHTML = day + " |   " + date + "-" + month + " | "+ hours + ":" + mins + periods;
 }
 setInterval(getCurrentDate,1000)
 
-curDate.innerHTML = getCurrentDay() + " | " + getCurrentDate();
+curDate.innerHTML =getCurrentDate();
 
     </script>
     <script src="js/script.js"></script>
